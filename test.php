@@ -22,7 +22,7 @@ class Example extends PHPUnit_Extensions_SeleniumTestCase
 
     $this->type("name=Usuario", "wqeqwe");
     $this->click("name=disponibilidad");
-    $this->assertEquals("Verifica la disponiblidad", $this->getAttribute("name=txtconfirm@value"));
+    $this->assertEquals("Verifica la disponiblidada", $this->getAttribute("name=txtconfirm@value"));
   }
 }
 ?>
