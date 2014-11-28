@@ -10,6 +10,6 @@ before_install:
 
 before_script: 
   - java -jar phpUtils/selenium-server.jar &
-  - sleep 10
+  - sleep 20
 script:
   - phpunit test.php
