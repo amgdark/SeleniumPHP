@@ -9,7 +9,8 @@ before_install:
   - export PATH=$PATH:phpUtils/
 
 before_script: 
-  - java -jar phpUtils/selenium-server.jar
+  - java -jar phpUtils/selenium-server.jar &
+  - sleep 10
 
 script:
   - phpunit test.php# command to run tests
