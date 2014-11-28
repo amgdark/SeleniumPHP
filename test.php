@@ -3,23 +3,26 @@ class Example extends PHPUnit_Extensions_SeleniumTestCase
 {
   protected function setUp()
   {
-    $this->setBrowser("*chrome");
-    $this->setBrowserUrl("https://10.117.29.3/");
+    $this->setBrowser("*firefox");
+    $this->setBrowserUrl("http://ingsoftware.reduaz.mx/");
   }
 
   public function testMyTestCase()
   {
-    $this->open("/webapps/");
-    $this->selectFrame("mainFrame");
-    $this->type("id=login", "amauricio");
-    $this->type("id=passw", "mauricio");
-    $this->click("name=Submit");
-    $this->waitForPageToLoad("30000");
-    $this->click("//ul[@id='menuA']/li[6]/ul/li/a/span");
-    $this->waitForPageToLoad("30000");
-    $this->assertEquals("Consultar Solicitud", $this->getTitle());
-    
+    $this->open("/tutorias/index.php");
+    $this->click("id=registrar");
+    $this->selectFrame("frameMain");
+    for ($second = 0; ; $second++) {
+        if ($second >= 60) $this->fail("timeout");
+        try {
+            if ($this->isElementPresent("name=Usuario")) break;
+        } catch (Exception $e) {}
+        sleep(1);
+    }
+
+    $this->type("name=Usuario", "wqeqwe");
+    $this->click("name=disponibilidad");
+    $this->assertEquals("Verifica la disponiblidad", $this->getAttribute("name=txtconfirm@value"));
   }
-  
 }
 ?>
