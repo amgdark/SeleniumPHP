@@ -13,4 +13,4 @@ before_script:
   - sleep 10
 
 script:
-  - phpunit test.php# command to run tests
+  - phpunit test.php
